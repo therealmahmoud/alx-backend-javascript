@@ -5,4 +5,5 @@ export default function getResponseFromAPI(success) {
   } else {
     reject(new Error("The fake API is not working currently"));
   }
-})};
+});
+}
