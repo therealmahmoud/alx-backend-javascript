@@ -1,9 +1,5 @@
 import ClassRoom from "./0-classroom.js"
 
 export default function initializeRooms() {
-  return `[
-    ${ClassRoom.name} { _maxStudentsSize: 19 },
-    ${ClassRoom.name} { _maxStudentsSize: 20 },
-    ${ClassRoom.name} { _maxStudentsSize: 34 }
-]`
+  return [19, 20, 34].map((size) => new ClassRoom(size));
 }
