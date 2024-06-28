@@ -13,9 +13,6 @@ export default class Currency {
   }
 
   set code(val) {
-    if (val !== 'string'){
-      throw new TypeError('Code must be string')
-    }
     this._code = val
   }
 
@@ -24,9 +21,6 @@ export default class Currency {
   }
 
   set name(val) {
-    if (val !== 'string'){
-      throw new TypeError('Name must be string')
-    }
     this._name = val
   }
 
