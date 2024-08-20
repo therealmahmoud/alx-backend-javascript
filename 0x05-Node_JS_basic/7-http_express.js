@@ -1,21 +1,24 @@
-// 7-http_express.js
 const express = require('express');
+const path = require('path');
 const countStudents = require('./3-read_file_async');
 
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello Holberton School!');
+  res.status(200).send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
-  const databaseFilePath = process.argv[2];
-
+  res.set('Content-Type', 'text/plain');
   res.write('This is the list of our students\n');
+
+  const databaseFilePath = process.argv[2];
 
   if (databaseFilePath) {
     countStudents(databaseFilePath)
-      .then(() => res.end())
+      .then(() => {
+        res.end();
+      })
       .catch((error) => {
         res.write(`${error.message}\n`);
         res.end();
@@ -26,6 +29,8 @@ app.get('/students', (req, res) => {
   }
 });
 
-app.listen(1245);
+app.listen(1245, () => {
+  console.log('Express server is running on port 1245');
+});
 
 module.exports = app;
