@@ -37,10 +37,10 @@ function countStudents(filePath) {
 
     console.log(`Number of students: ${studentData.length}`);
 
+    // eslint-disable-next-line guard-for-in
     for (const field in fieldCounts) {
       console.log(`Number of students in ${field}: ${fieldCounts[field]}. List: ${fieldLists[field].join(', ')}`);
     }
-
   } catch (error) {
     throw new Error('Cannot load the database');
   }
